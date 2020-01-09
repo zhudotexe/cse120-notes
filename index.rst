@@ -11,6 +11,7 @@ Welcome to cse120's documentation!
    :caption: Contents:
 
    intro
+   performance
 
 
 
