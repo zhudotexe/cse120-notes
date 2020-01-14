@@ -135,3 +135,65 @@ CPI
 **Average CPI** (most common): depends on program
 
 calculated as :math:`CPI = \sum_{i=1}^n \frac{IC_i}{IC} * CPI_i` for each i in instructions
+
+Amdahl's Law
+------------
+AKA "Partial Speedup"
+
+Performance gain limited by the fraction of improved execution - speeding up only certain instruction types infinitely doesn't lead to infinite speedup
+
+.. math::
+
+    max speedup = \frac{1}{1-f(e)}
+
+    speedup = \frac{1}{(1-f(e)) + \frac{f(e)}{speedup(e)}}
+
+Where f(e) = the fraction of the instructions that is sped up
+
+Summarizing Performance
+-----------------------
+
+ex: see slides perf02, pg 16 for table
+
+========== ========== ========== ==========
+Program    Computer A Computer B Computer C
+---------- ---------- ---------- ----------
+Program P1          1         10         20
+Program P2       1000        100         20
+Program P3       1001        110         40
+Arith Mean       ~667        ~73        ~26
+Geom Mean        ~100        ~48        ~25
+========== ========== ========== ==========
+
+Means
+^^^^^
+**Arithmetic Mean**: sum/num
+
+**Geometric Mean**: nth root of n products - used in most benchmarks
+
+**Harmonic Mean**: :math:`\frac{n}{\sum \frac{1}{perf(i)}}`
+
+Usually, papers use geometric means of speedups across multiple benchmarks (see perf02, pg 18)
+
+The geometric mean is agnostic to the normalization
+
+TLDR:
+    - arith < geo < harmonic
+    - geometric and harmonic must be normalized
+    - geometric is base independent
+
+Benchmarks
+----------
+
+- programs used to measure performance
+    - supposed to be representative of typical workload
+- benchmark suite: a collection of benchmarks
+    - plus datasets, metrics, and rules for evaluation
+    - plus a way to quantify performance in a single number
+- each one have different instruction counts/mix of instructions
+
+a commonly used benchmark is SPEC
+- SPECint: single thread master
+- SPECfp: scientific apps
+- SPECpower: 11 runs at (0, 10..100%) load
+- SPECmp: noncommunicating parallel processes
