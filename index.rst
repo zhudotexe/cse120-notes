@@ -13,6 +13,7 @@ Welcome to cse120's documentation!
    intro
    performance
    isa
+   riscv
 
 
 
