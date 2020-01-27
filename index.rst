@@ -14,6 +14,7 @@ Welcome to cse120's documentation!
    performance
    isa
    riscv
+   datapath
 
 
 

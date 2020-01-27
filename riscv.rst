@@ -132,11 +132,24 @@ Ex: ``beq`` = branch if equal, ``bne`` = branch if not equal
 
 the label is an immediate that's added to the PC
 
-Unconditional Jump
+``bne x1, x2, L``
+
+``bltz x1, L`` = branch less than zero
+
+``blez x1, L`` = branch <= 0
+
+
+Jumps
 ^^^^^^^^^^^^^^^^^^
 ``j label``
 
 essentially a goto label, the immediate (2^18) is added to the PC
+
+``jr x1`` = goto value in x1
+
+``jal L`` = goto L, set ra
+
+``jalr x1`` = goto x1, set ra
 
 Example
 """""""
@@ -177,3 +190,10 @@ AUIPC
 - adds this offset to the PC and places the result in ``rd``
 - see riscv-card, pseudoinstruction ``call``
 
+Comparisons
+^^^^^^^^^^^
+``slt x1, x2, x3`` = x1 = x2 < x3
+
+``slti x1, x2, 100`` = x1 = x2 < 100
+
+``sltu x1, x2, x3`` = unsigned comparison
