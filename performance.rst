@@ -81,6 +81,9 @@ Performance Metrics
 
     speedup = \frac{time(old)}{time(new)}
 
+.. note::
+    100% speedup means twice as fast!
+
 Latency
 ^^^^^^^
 The elapsed time it takes to do X
