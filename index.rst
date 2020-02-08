@@ -15,6 +15,7 @@ Welcome to cse120's documentation!
    isa
    riscv
    datapath
+   pipelining
 
 
 
