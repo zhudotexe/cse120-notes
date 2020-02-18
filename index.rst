@@ -16,6 +16,8 @@ Welcome to cse120's documentation!
    riscv
    datapath
    pipelining
+   bpred
+   memory
 
 
 
