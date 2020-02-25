@@ -268,6 +268,24 @@ Exception Issues
     F0 F1 D  X0 X1 X2 W
        F0 F1 D  D  D  X0 W
 
+More Examples
+^^^^^^^^^^^^^
 
+.. code-block:: text
+
+    No delay slot
+    branch target resolved at decode
+    branch outcome resolved at execute
+    F0, F1, D, X (X1 for add/sub), M, WB
+    forwarding but no half-write
+    predict not taken, actually taken
+
+    40: sub  x1,  x2,  x4 | F0 F1 D  X0 X1 M  WB
+    44: add  x12, x1,  x2 |    F0 F1 D  D  X0 X1 M  WB
+    48: or   x13, x1,  x2 |       F0 F1 F1 D  D  D  X  M  WB
+    4c: bne  x12, x13, 58 |          F0 F0 F1 F1 F1 D  D  X  M  WB
+    50: slt  x15, x13, x7 |                f0 f0 f0 f1 f1 d  -- -- --
+    54: mult x16, x15, x1 |                         f0 f0 f1 -- -- -- --
+    58: lw   x16, 50(x16) |                               f0 F0 F1 D  X  M  WB
 
 
